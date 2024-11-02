@@ -27,4 +27,3 @@ This project is an MVP (Minimum Viable Product) for a backend service that retri
 ## Project Structure
 
 The project follows the Directory Structure 2.0.1 (DIRS 2) standard:
-# emergency-BE
