@@ -1,6 +1,6 @@
 import requests
 
-#api_key = "service-api-key" #stored on BitWarden
+api_key = #stored on Bitwarden
 endpoint = "https://api.openai.com/v1/chat/completions"
 
 headers = {
