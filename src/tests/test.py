@@ -1,6 +1,6 @@
 import requests
 
-api_key = "sk-svcacct-OFKDT4n936sRFkYLqmXH1NSJajS-ow3fJ2ww98RM2L-R5whsyxxgTz10GnDSCzZKlqYFT3BlbkFJIiFrIjHlBvC_ZM4QBqEVIup1OV1QwIxkmLlq7nJzvxP1drMA1t6AykqSlMXSdZzhmu4A"
+api_key = "service-api-key" #stored on BitWarden
 endpoint = "https://api.openai.com/v1/chat/completions"
 
 headers = {
