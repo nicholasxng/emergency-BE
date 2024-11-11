@@ -1,3 +1,4 @@
+import requests
 import json
 
 # Set up your OpenAI API key
@@ -21,29 +22,31 @@ data = {
   ]
 }
 
-
 # Send the request
 response = requests.post(url, headers=headers, json=data)
 
 # Check for errors and parse the response
 if response.status_code == 200:
-    response_json = response.json()
     try:
-        # Extract the content from the message
-        content = response_json["choices"][0]["message"]["content"]
-        # Print the structured response
-        print("Response Content:")
-        print(content)
+        response_json = response.json()
+        # Check if 'choices' exists and is non-empty
+        if "choices" in response_json and response_json["choices"]:
+            # Extract the content from the message
+            content = response_json["choices"][0]["message"]["content"]
+            print("Response Content:")
+            print(content)
 
-        # Optionally, convert the response content to a Python list if it’s valid JSON
-        try:
-            parsed_response = json.loads(content)
-            print("\nParsed Response as JSON:")
-            print(json.dumps(parsed_response, indent=4))
-        except json.JSONDecodeError:
-            print("\nError: Response is not valid JSON.")
+            # Attempt to parse the content as JSON if it's formatted as such
+            try:
+                parsed_response = json.loads(content)
+                print("\nParsed Response as JSON:")
+                print(json.dumps(parsed_response, indent=4))
+            except json.JSONDecodeError:
+                print("\nNote: The response is not in JSON format.")
+        else:
+            print("Error: 'choices' field is missing or empty in the response.")
 
-    except KeyError as e:
-        print(f"KeyError: {e}")
+    except (KeyError, ValueError) as e:
+        print(f"Error while processing the response: {e}")
 else:
     print(f"Error {response.status_code}: {response.text}")
