@@ -13,7 +13,7 @@ headers = {
 
 # Define the JSON body of the request
 data = {
-  "model": "gpt-3.5-turbo",
+  "model": "gpt-4",
   "messages": [
 {
   "role": "system",
@@ -21,7 +21,7 @@ data = {
 },
     {
       "role": "user",
-      "content": "Provide non-emergency phone numbers for fire, police, medical, poison, and gas leak for 400 Portofino Drive San Carlos, CA 94070"
+      "content": "Provide non-emergency phone numbers for fire, police, medical, poison, and gas leak for address:400 Portofino Drive San Carlos, CA 94070"
     }
   ]
 }
